@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(
   '/v1/',
   createProxyMiddleware({
-    target: 'https://api.openai.com',
+    target: 'https://api.openai.com/v1',
     changeOrigin: true,
     onProxyReq: (proxyReq) => {
       console.log(req.originalUrl)
