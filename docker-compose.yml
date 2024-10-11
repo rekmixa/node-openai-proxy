@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  node:
+    image: node:18.20.4-alpine3.20
+    working_dir: /home/node/app
+    logging:
+      options:
+        max-size: '10m'
+        max-file: '3'
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+    expose:
+      - 3000
+    volumes:
+      - ./:/home/node/app
+    command: sh -c 'node index.js'
+    restart: ${RESTART}
+    labels:
+      traefik.enable: 'true'
+      traefik.frontend.rule: 'Host: ${DOMAIN}'
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
