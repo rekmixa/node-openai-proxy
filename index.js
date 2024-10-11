@@ -1,6 +1,8 @@
+require('dotenv').config()
+
 const path = require('path')
 const express = require('express')
-const PORT = 3000
+const PORT = process.env.PORT
 
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const app = express()
@@ -26,6 +28,7 @@ app.use(
 
 app
   .listen(PORT, () => {
+    console.log(process.env.API_KEY)
     console.log(`server running on http://localhost:${PORT}`)
   })
   .on('error', (err) => {
