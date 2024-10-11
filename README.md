@@ -16,7 +16,7 @@ make up
 
 ## Dotenv configuration:
 
-`DOMAIN` - Domain of proxy (your domain)
+`DOMAIN` - Domain of proxy (your domain)  
 `API_KEY` - OpenAI API-key
 
 ## Usage
